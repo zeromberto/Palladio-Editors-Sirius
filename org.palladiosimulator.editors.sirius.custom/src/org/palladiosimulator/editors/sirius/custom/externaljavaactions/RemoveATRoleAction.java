@@ -6,8 +6,8 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
-import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.Role;
+import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.system.System;
 

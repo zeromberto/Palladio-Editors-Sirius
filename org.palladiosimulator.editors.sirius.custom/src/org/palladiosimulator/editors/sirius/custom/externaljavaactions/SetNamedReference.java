@@ -8,6 +8,7 @@ import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.palladiosimulator.editors.commons.dialogs.variablenames.SetOutputVariableNameDialog;
+
 import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class SetNamedReference implements IExternalJavaAction {

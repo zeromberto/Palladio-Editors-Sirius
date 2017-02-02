@@ -4,16 +4,20 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.ui.PlatformUI;
 import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
+import org.palladiosimulator.architecturaltemplates.ui.dialogs.AssemblyConnectorSelectionDialog;
 import org.palladiosimulator.architecturaltemplates.ui.dialogs.RoleStereotypeSelectionDialog;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.Connector;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.system.System;
 
@@ -43,10 +47,32 @@ public class AddATRoleAction implements IExternalJavaAction {
      */
     @Override
     public void execute(final Collection<? extends EObject> selections, final Map<String, Object> parameters) {
-        final EObject selection = selections.iterator().next();
-
-        // final AssemblyContext assemblyContext = (AssemblyContext) selections.iterator().next();
-
+        EObject selection = selections.iterator().next();
+        
+        // Treat the selection of assemmbly connectors
+        Connector selectedConnector = null;
+        EList<Connector> assemblyConnectors = null;
+        if (selection instanceof StereotypeApplication) {
+        	try {
+        	StereotypeApplication application = (StereotypeApplication) selection;
+        	System system = (System) application.getAppliedTo();
+        	assemblyConnectors = system.getConnectors__ComposedStructure();
+        	} catch (final Exception e) {
+                e.printStackTrace(); // TODO proper error handling
+            }
+        	
+        	final AssemblyConnectorSelectionDialog dialog = new AssemblyConnectorSelectionDialog(
+                    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+        	
+        	dialog.setElements(assemblyConnectors.toArray(new Connector[0]));
+        	if (dialog.open() != Dialog.OK) {
+                return;
+            }
+        	selectedConnector = dialog.getResultConnector();
+        	selection = selectedConnector;
+        }
+         
+       
         final LinkedList<Stereotype> unapplyedStereotypes = new LinkedList<>();
 
         for (final Stereotype stereotype : StereotypeAPI.getApplicableStereotypes(selection)) {
@@ -54,6 +80,7 @@ public class AddATRoleAction implements IExternalJavaAction {
                 unapplyedStereotypes.add(stereotype);
             }
         }
+        
 
         final RoleStereotypeSelectionDialog dialog = new RoleStereotypeSelectionDialog(
                 PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
@@ -80,7 +107,7 @@ public class AddATRoleAction implements IExternalJavaAction {
             return false;
         }
         for (final EObject object : selections) {
-            return (object instanceof AssemblyContext) || (object instanceof ResourceContainer);
+            return (object instanceof AssemblyContext) || (object instanceof ResourceContainer) || (true);
         }
         return false;
     }
