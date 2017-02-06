@@ -8,8 +8,12 @@
             id="AddAT">
       </javaActions>
       <javaActions
-            actionClass="org.palladiosimulator.editors.sirius.custom.externaljavaactions.AddATRoleAction"
-            id="AddATRole">
+            actionClass="org.palladiosimulator.editors.sirius.custom.externaljavaactions.AddATRoleAssemblyContextAction"
+            id="AddATRoleAssemblyContext">
+      </javaActions>
+      <javaActions
+            actionClass="org.palladiosimulator.editors.sirius.custom.externaljavaactions.AddATRoleAssemblyConnectorAction"
+            id="AddATRoleAssemblyConnector">
       </javaActions>
       <javaActions
             actionClass="org.palladiosimulator.editors.sirius.custom.externaljavaactions.ApplyUnapplyProfileAction"

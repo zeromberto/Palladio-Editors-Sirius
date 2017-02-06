@@ -151,6 +151,21 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
+          <subContainerMappings name="Role Container" deletionDescription="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='AT%20Role%20Removal']" semanticCandidatesExpression="[self.connectors__ComposedStructure.getRoleApplications()/]" domainClass="StereotypeApplication">
+            <subNodeMappings name="RoleParameter Node" preconditionExpression="[self.changeable/]" semanticCandidatesExpression="[self.getStereotype().getParameters()/]" domainClass="EStructuralFeature">
+              <style xsi:type="style:SquareDescription" labelExpression="[self.name + '=' + view.eContainer(DDiagramElementContainer).target.eGet(self)/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[getStereotype().name/]" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
           <subContainerMappings name="AssemblyContext Container" deletionDescription="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.3/@subSections[name='Deletion']/@ownedTools[name='AssemblyContext%20Deletion']" labelDirectEdit="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.3/@subSections[name='Direct%20Edit%20Label']/@ownedTools[name='NamedElementDirectEdit']" semanticCandidatesExpression="[self.assemblyContexts__ComposedStructure/]" documentation="Used for the parameter implementation until the Node can be fully migrated." domainClass="composition.AssemblyContext">
             <borderedNodeMappings name="OperationProvidedRole Node" labelDirectEdit="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='RoleName']" semanticCandidatesExpression="[self.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity/]" domainClass="repository.OperationProvidedRole">
               <style xsi:type="style:CustomStyleDescription" showIcon="false" labelExpression="feature:entityName" id="org.palladiosimulator.editors.sirius.assembly.custom.operationProvidedRole">
@@ -159,9 +174,6 @@
               </style>
             </borderedNodeMappings>
             <borderedNodeMappings name="OperationRequiredRole Node" labelDirectEdit="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='RoleName']" semanticCandidatesExpression="[self.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity/]" domainClass="repository.OperationRequiredRole">
-              <borderedNodeMappings name="Role Node" semanticCandidatesExpression="[self.getRoleApplications()/]" domainClass="StereotypeApplication">
-                <borderedNodeMappings name="RoleParameter Node" preconditionExpression="[self.changeable/]" semanticCandidatesExpression="[self.getStereotype().getParameters()/]" domainClass="EStructuralFeature"/>
-              </borderedNodeMappings>
               <style xsi:type="style:CustomStyleDescription" showIcon="false" labelExpression="feature:entityName" id="org.palladiosimulator.editors.sirius.assembly.custom.operationRequiredRole">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -250,21 +262,6 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subContainerMappings name="Role Container" deletionDescription="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='AT%20Role%20Removal']" domainClass="StereotypeApplication">
-              <subNodeMappings name="RoleParameter Node" preconditionExpression="[self.changeable/]" semanticCandidatesExpression="[self.getStereotype().getParameters()/]" doubleClickDescription="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.3/@subSections[name='Direct%20Edit%20Label']/@ownedTools[name='QueryAndSetRoleParameterValue']" domainClass="EStructuralFeature">
-                <style xsi:type="style:SquareDescription" labelExpression="[self.name + '=' + view.eContainer(DDiagramElementContainer).target.eGet(self)/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-                </style>
-              </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="Role" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-              </style>
-            </subContainerMappings>
             <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" borderLineStyle="dash" labelExpression="[getStereotype().name/]" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/ATInstance.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -636,7 +633,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.specification_VariableCharacterisation.editPCMRandomVariable(arg0)/]"/>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:DoubleClickDescription" documentation="This should be using a direct edit label-tool instead which is not possible at the moment because the view is not accessible in it.&#xA;Can be changed once this bug is resolved: https://bugs.eclipse.org/bugs/show_bug.cgi?id=470598" name="QueryAndSetRoleParameterValue" precondition="[changeable/]" mappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@subNodeMappings[name='RoleParameter%20Node'] //@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node'] //@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']">
+            <ownedTools xsi:type="tool:DoubleClickDescription" documentation="This should be using a direct edit label-tool instead which is not possible at the moment because the view is not accessible in it.&#xA;Can be changed once this bug is resolved: https://bugs.eclipse.org/bugs/show_bug.cgi?id=470598" name="QueryAndSetRoleParameterValue" precondition="[changeable/]" mappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@subNodeMappings[name='RoleParameter%20Node'] //@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']">
               <element name="element"/>
               <elementView name="elementView"/>
               <initialOperation>
@@ -697,20 +694,18 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="AT Role Creation to Assemby Context" label="Bind Role to Assembly Context" forceRefresh="true" inverseSelectionOrder="true" containerMappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container'] //@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@subContainerMappings[name='Role%20Container']" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="AT Role Creation to Assemby Context" label="Bind Role to Assembly Context" forceRefresh="true" inverseSelectionOrder="true" containerMappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role Creation" label="Bind Role" id="AddATRole"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role Creation" label="Bind Role" id="AddATRoleAssemblyContext"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="AT Role Creation to Assemby Connector" label="Bind Role to Assembly Connector" forceRefresh="true" inverseSelectionOrder="true" containerMappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@subContainerMappings[name='Role%20Container']" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="AT Role Creation to Assemby Connector" label="Bind Role to Assembly Connector" forceRefresh="true" inverseSelectionOrder="true" containerMappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='Role%20Container']" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="Add Role" id="AddATRole"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role Creation Assembly Connector" id="AddATRoleAssemblyConnector"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="AT Role Removal" label="Remove Role" forceRefresh="true">
