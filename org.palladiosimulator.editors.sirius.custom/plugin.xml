@@ -9,7 +9,7 @@
       </javaActions>
       <javaActions
             actionClass="org.palladiosimulator.editors.sirius.custom.externaljavaactions.AddATRoleAssemblyContextAction"
-            id="AddATRoleAssemblyContext">
+            id="AddATRoleAssemblyContextResourceContainer">
       </javaActions>
       <javaActions
             actionClass="org.palladiosimulator.editors.sirius.custom.externaljavaactions.AddATRoleAssemblyConnectorAction"

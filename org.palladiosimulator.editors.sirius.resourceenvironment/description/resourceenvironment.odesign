@@ -409,7 +409,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
                 <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT SystemRole Creation" label="Apply Architectural Template" id="AddAT"/>
               </firstModelOperations>
             </initialOperation>
@@ -418,7 +418,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role Creation" label="Bind Role" id="AddATRole"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role Creation" label="Bind Role" id="AddATRoleAssemblyContextResourceContainer"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="AT Role Removal" label="Remove Role">
