@@ -39,11 +39,11 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="Allocation AT Container" deletionDescription="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='AT%20Allocation%20Role%20Removal']" semanticCandidatesExpression="service: getProfileImports()" domainClass="emfprofileapplication.ProfileImport">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelExpression="aql: self.profile.name" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/ATInstance.gif">
+        <containerMappings name="Allocation AT Container" deletionDescription="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='AT%20Allocation%20Role%20Removal']" semanticCandidatesExpression="service:getProfileImports()" domainClass="emfprofileapplication.ProfileImport" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelExpression="[self.profile.name/]" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/ATInstance.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
@@ -108,16 +108,16 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Allocattion Role Creation" id="AddAT"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Allocattion Role Creation" forceRefresh="true" id="AddAT"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="AT Allocation Role Removal" label="Remove Architectural Template">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="AT Allocation Role Removal" label="Remove Architectural Template" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role" id="Remove AT"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role" id="RemoveAT"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

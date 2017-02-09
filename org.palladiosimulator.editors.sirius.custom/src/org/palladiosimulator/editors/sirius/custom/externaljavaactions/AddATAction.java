@@ -58,6 +58,9 @@ public class AddATAction implements IExternalJavaAction {
         } else if (eObject instanceof ResourceEnvironment) {
             final ResourceEnvironment resourceenvironment = (ResourceEnvironment) eObject;
             ArchitecturalTemplateAPI.applyArchitecturalTemplate(resourceenvironment, at);
+        } else if (eObject instanceof Allocation) {
+            final Allocation allocation = (Allocation) eObject;
+            ArchitecturalTemplateAPI.applyArchitecturalTemplate(allocation, at);
         } else {
             throw new RuntimeException("Unsupported eObject: " + eObject);
         }
