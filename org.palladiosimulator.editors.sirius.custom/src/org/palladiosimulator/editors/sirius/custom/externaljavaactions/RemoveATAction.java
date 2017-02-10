@@ -9,6 +9,7 @@ import org.modelversioning.emfprofileapplication.ProfileImport;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.system.System;
 
 /**
@@ -34,6 +35,12 @@ public class RemoveATAction implements IExternalJavaAction {
                 final System system = (System) stereotypeApplication.getAppliedTo();
 
                 ArchitecturalTemplateAPI.unapplyArchitecturalTemplate(system,
+                        stereotypeApplication.getStereotype().getProfile());
+            }
+            else if (stereotypeApplication.getAppliedTo() instanceof ResourceEnvironment) {
+                final ResourceEnvironment resourceEnvironment = (ResourceEnvironment) stereotypeApplication.getAppliedTo();
+
+                ArchitecturalTemplateAPI.unapplyArchitecturalTemplate(resourceEnvironment,
                         stereotypeApplication.getStereotype().getProfile());
             } else
                 throw new RuntimeException(
