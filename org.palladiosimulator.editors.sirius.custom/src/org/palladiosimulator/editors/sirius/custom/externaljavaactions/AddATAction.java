@@ -11,6 +11,7 @@ import org.modelversioning.emfprofile.Stereotype;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.ui.dialogs.ArchitecturalTemplateSelectionDialog;
+import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.system.System;
 
@@ -57,6 +58,9 @@ public class AddATAction implements IExternalJavaAction {
         } else if (eObject instanceof ResourceEnvironment) {
             final ResourceEnvironment resourceenvironment = (ResourceEnvironment) eObject;
             ArchitecturalTemplateAPI.applyArchitecturalTemplate(resourceenvironment, at);
+        } else if (eObject instanceof Allocation) {
+            final Allocation allocation = (Allocation) eObject;
+            ArchitecturalTemplateAPI.applyArchitecturalTemplate(allocation, at);
         } else {
             throw new RuntimeException("Unsupported eObject: " + eObject);
         }
@@ -72,7 +76,7 @@ public class AddATAction implements IExternalJavaAction {
             return false;
         }
         for (final EObject object : selections) {
-            return (object instanceof System) || (object instanceof ResourceEnvironment);
+            return (object instanceof System) || (object instanceof ResourceEnvironment) || (object instanceof Allocation);
         }
         return false;
     }
