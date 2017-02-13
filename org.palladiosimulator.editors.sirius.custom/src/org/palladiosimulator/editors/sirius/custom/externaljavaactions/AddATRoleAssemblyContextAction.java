@@ -13,6 +13,7 @@ import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.ui.dialogs.RoleStereotypeSelectionDialog;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
+import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.system.System;
@@ -79,7 +80,7 @@ public class AddATRoleAssemblyContextAction implements IExternalJavaAction {
             return false;
         }
         for (final EObject object : selections) {
-            return (object instanceof AssemblyContext) || (object instanceof ResourceContainer);
+            return (object instanceof AssemblyContext) || (object instanceof ResourceContainer) || (object instanceof AllocationContext);
         }
         return false;
     }

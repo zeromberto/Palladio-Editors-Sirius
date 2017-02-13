@@ -8,7 +8,15 @@
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition"/>
       <defaultLayer name="Default">
         <containerMappings name="ResourceContainer" labelDirectEdit="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Default%20Label%20Editing']" semanticCandidatesExpression="[self.targetResourceEnvironment_Allocation.resourceContainer_ResourceEnvironment/]" domainClass="resourceenvironment.ResourceContainer" dropDescriptions="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='AllocationContext%20into%20ResourceContainer']" reusedContainerMappings="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Allocation_AssemblyContext']">
-          <subContainerMappings name="Allocation_AssemblyContext" labelDirectEdit="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Default%20Label%20Editing']" semanticCandidatesExpression="[containerView.eContainer().oclAsType(diagram::DSemanticDiagram).target.oclAsType(allocation::Allocation).allocationContexts_Allocation->select(x | x.oclAsType(allocation::AllocationContext).resourceContainer_AllocationContext = self and x.oclAsType(allocation::AllocationContext).assemblyContext_AllocationContext &lt;> null)/]" domainClass="allocation.AllocationContext" childrenPresentation="List">
+          <subContainerMappings name="Allocation_AssemblyContext" labelDirectEdit="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Default%20Label%20Editing']" semanticCandidatesExpression="[containerView.eContainer().oclAsType(diagram::DSemanticDiagram).target.oclAsType(allocation::Allocation).allocationContexts_Allocation->select(x | x.oclAsType(allocation::AllocationContext).resourceContainer_AllocationContext = self and x.oclAsType(allocation::AllocationContext).assemblyContext_AllocationContext &lt;> null)/]" domainClass="allocation.AllocationContext">
+            <subContainerMappings name="Role Container" deletionDescription="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Remove%20Role']" semanticCandidatesExpression="[self.getRoleApplications()/]" domainClass="StereotypeApplication" childrenPresentation="List">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="[self.getStereotype().name/]" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subContainerMappings>
             <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="aql:'&lt;&lt;Allocation>>\n'.concat(self.entityName)" tooltipExpression="AllocationContext">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -118,6 +126,23 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="AT Role" id="RemoveAT"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Remove Role" forceRefresh="true">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Remove At Role" id="RemoveATRole"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Bind Role" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Allocation']/@ownedRepresentations[name='Allocation%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Allocation_AssemblyContext']/@subContainerMappings[name='Role%20Container']" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Bind Role" id="AddATRoleAssemblyContextResourceContainer">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="Bind Role" id="AddATRoleAssemblyContextResourceContainer"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
