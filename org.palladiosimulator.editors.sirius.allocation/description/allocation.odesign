@@ -140,9 +140,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Bind Role" id="AddATRoleAssemblyContextResourceContainer">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="Bind Role" id="AddATRoleAssemblyContextResourceContainer"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Bind Role" id="AddATRoleAssemblyContextResourceContainer"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
